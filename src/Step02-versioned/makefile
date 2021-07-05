@@ -18,3 +18,5 @@ dist: Tutorial dist_dir
 
 run: dist
 	cd dist && ./Tutorial 1000
+
+all: clean run
