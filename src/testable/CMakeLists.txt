@@ -8,6 +8,10 @@ option(USE_MYMATH "Use tutorial provided math implementation" ON)
 set(Tutorial_VERSION_MAJOR 1)
 set(Tutorial_VERSION_MINOR 0)
 
+# add the install targets
+install (TARGETS Tutorial DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
+
 # configure a header file to pass some of the CMake settings to the source code
 configure_file (
  "${PROJECT_SOURCE_DIR}/TutorialConfig.h.in"
@@ -28,6 +32,3 @@ endif (USE_MYMATH)
 add_executable (Tutorial tutorial.cxx)
 target_link_libraries (Tutorial ${EXTRA_LIBS})
 
-# add the install targets
-install (TARGETS Tutorial DESTINATION bin)
-install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
