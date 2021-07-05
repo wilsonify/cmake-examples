@@ -1,17 +1,20 @@
-.phony: all clean
+.phony: all clean run
 
 clean:
 	rm -rf build
 	rm -rf dist
 
 build_dir:
-	mkdir build
+	mkdir -p build
 
 dist_dir:
-	mkdir dist
+	mkdir -p dist
 
-all: build_dir
+Tutorial: build_dir
 	cd build && cmake .. && make
 
-dist: all dist_dir
+dist: Tutorial dist_dir
 	mv build/Tutorial dist
+
+run: dist
+	cd dist && ./Tutorial 1000
