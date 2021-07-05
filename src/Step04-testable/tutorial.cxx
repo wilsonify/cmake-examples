@@ -15,7 +15,13 @@ return 1;
 }
 
 double inputValue = atof(argv[1]);
-double outputValue = sqrt(inputValue);
+
+#ifdef USE_MYMATH
+  double outputValue = mysqrt(inputValue);
+#else
+  double outputValue = sqrt(inputValue);
+#endif
+
 fprintf(stdout,"The square root of %g is %g\n", inputValue, outputValue);
 return 0;
 }
