@@ -10,8 +10,8 @@ build_dir:
 dist_dir:
 	mkdir -p dist
 
-all: build_dir
+Tutorial: build_dir
 	cd build && cmake .. && make
 
-dist: all dist_dir
+dist: dist_dir Tutorial
 	mv build/Tutorial dist
