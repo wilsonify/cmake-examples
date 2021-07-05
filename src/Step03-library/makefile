@@ -1,4 +1,4 @@
-.phony: all clean
+.phony: all clean run
 
 clean:
 	rm -rf build
@@ -15,3 +15,8 @@ Tutorial: build_dir
 
 dist: dist_dir Tutorial
 	mv build/Tutorial dist
+
+run: dist
+	cd dist && ./Tutorial -25
+
+all: clean run
