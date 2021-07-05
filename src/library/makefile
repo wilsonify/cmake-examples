@@ -5,10 +5,10 @@ clean:
 	rm -rf dist
 
 build_dir:
-	mkdir build
+	mkdir -p build
 
 dist_dir:
-	mkdir dist
+	mkdir -p dist
 
 all: build_dir
 	cd build && cmake .. && make
