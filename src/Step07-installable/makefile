@@ -13,13 +13,16 @@ dist_dir:
 Tutorial: build_dir
 	cd build && cmake .. && make
 
+run: Tutorial
+	build/Tutorial 1000
+
 test: Tutorial
 	cd build && ctest
 
-dist: dist_dir Tutorial
-	mv build/Tutorial dist
+installer: Tutorial
+	cd build && cpack -C CPackConfig.cmake
 
-run: dist
-	cd dist && ./Tutorial 1000
+dist: dist_dir installer
+	mv build/library-1.0.1-Linux.tar.gz dist
 
-all: clean test dist run
+all: clean test dist
