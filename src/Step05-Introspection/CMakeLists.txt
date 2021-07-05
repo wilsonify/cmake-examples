@@ -24,6 +24,11 @@ if (USE_MYMATH)
  set(EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
 endif (USE_MYMATH)
 
+# does this system provide the log and exp functions?
+include (CheckFunctionExists)
+check_function_exists (log HAVE_LOG)
+check_function_exists (exp HAVE_EXP)
+
 # add the executable
 add_executable (Tutorial tutorial.cxx)
 target_link_libraries (Tutorial ${EXTRA_LIBS})
@@ -33,13 +38,15 @@ install (TARGETS Tutorial DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
 
 # Tests
+enable_testing ()
+
 # does the application run
 add_test (TutorialRuns Tutorial 25)
 
 # does the usage message work?
 add_test (TutorialUsage Tutorial)
 set_tests_properties (TutorialUsage
-PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.^number")
+PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .+ number")
 
 # does it sqrt of 25
 add_test (TutorialComp25 Tutorial 25)
@@ -49,7 +56,7 @@ PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
 # does it handle negative numbers
 add_test (TutorialNegative Tutorial -25)
 set_tests_properties (TutorialNegative
-PROPERTIES PASS_REGULAR_EXPRESSION ”-25 is 0”)
+PROPERTIES PASS_REGULAR_EXPRESSION "-25 is 0")
 
 # does it handle small numbers
 add_test (TutorialSmall Tutorial 0.0001)
@@ -67,3 +74,4 @@ endmacro (do_test)
 do_test (25 "25 is 5")
 do_test (-25 "-25 is 0")
 do_test (100 "100 is 10")
+do_test (44944 "44944 is 212")
