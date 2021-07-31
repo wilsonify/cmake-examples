@@ -26,3 +26,6 @@ dist: dist_dir installer
 	mv build/library-1.0.1-Linux.tar.gz dist
 
 all: clean test dist
+
+dash: dist
+	cd build && ctest -D Experimental
