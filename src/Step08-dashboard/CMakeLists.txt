@@ -38,7 +38,7 @@ install (TARGETS Tutorial DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
 
 # Tests
-enable_testing ()
+ enable_testing ()
 
 # does the application run
 add_test (TutorialRuns Tutorial 25)
@@ -82,3 +82,6 @@ set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/license.txt")
 set (CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
 set (CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
 include (CPack)
+
+# enable dashboard scripting
+include (CTest)
