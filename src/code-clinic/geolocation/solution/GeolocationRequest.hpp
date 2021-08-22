@@ -10,7 +10,7 @@
 #include <string>
 
 #include "cJSON.h"     // JSON support https://github.com/DaveGamble/cJSON
-#include "curl\curl.h" // curl support https://curl.haxx.se/
+#include "curl/curl.h" // curl support https://curl.haxx.se/
 
 #define GEO_API_BASE_URL "https://www.googleapis.com/geolocation/v1/geolocate?key="
 #define GEO_API_KEY "AIzaSyBbzftXRb-82QIOH0T3_FUMif402VdVo-c" /* YOUR API KEY */
