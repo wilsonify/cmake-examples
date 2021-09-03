@@ -3,6 +3,7 @@
 clean:
 	rm -rf build
 	rm -rf dist
+	rm -rf Testing
 
 build_dir:
 	mkdir -p build
