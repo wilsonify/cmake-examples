@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "MathFunctions.h"
-
+namespace custommath {
 // a hack square root calculation using simple operations
 double mysqrt(double x)
 {
@@ -26,4 +26,5 @@ double mysqrt(double x)
     fprintf(stdout,"Computing sqrt of %g to be %g\n",x,result);
     }
   return result;
+}
 }

@@ -17,7 +17,7 @@ return 1;
 double inputValue = atof(argv[1]);
 
 #ifdef USE_MYMATH
-  double outputValue = mysqrt(inputValue);
+  double outputValue = custommath::mysqrt(inputValue);
 #else
   double outputValue = sqrt(inputValue);
 #endif
