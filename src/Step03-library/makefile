@@ -20,6 +20,9 @@ build/tutorial: build/VERSION.txt
 dist/tutorial: build/tutorial dist/VERSION.txt
 	mv build/tutorial dist/tutorial
 
+test: Tutorial
+	cd build && ctest
+
 run: dist/tutorial
 	cd dist && ./tutorial 1000
 
