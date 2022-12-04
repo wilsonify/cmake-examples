@@ -18,7 +18,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash                       \
  && composer self-update --no-interaction
 
 RUN mkdir -p /var/www                                             \
- && git clone -b v2.6.0 git://github.com/kitware/cdash /var/www/cdash       \
+ && git clone -b v2.6.0 https://github.com/kitware/cdash /var/www/cdash       \
  && rm -rf /var/www/cdash/.git                                    \
  && cd /var/www/cdash                                             \
  && composer install --no-interaction --no-progress --prefer-dist \
