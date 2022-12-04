@@ -1,4 +1,5 @@
 
-namespace custommath {
+namespace custommath
+{
 #include "mysqrt.h"
 }
