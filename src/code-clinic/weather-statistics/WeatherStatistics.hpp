@@ -12,7 +12,7 @@
 #include <map>
 #include <ctime>
 
-#define RESOURCE_PATH "../../resources/"
+#define RESOURCE_PATH "../resources/"
 
 class WeatherStatistics
 {
