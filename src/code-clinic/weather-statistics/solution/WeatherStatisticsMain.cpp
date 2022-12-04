@@ -37,8 +37,7 @@ int main() {
         return 1;
     }
 
-	double coeff = stats.computeCoeff(startDate, startTime, 
-                                      endDate, endTime);
+	double coeff = stats.computeCoeff(startDate, startTime, endDate, endTime);
 
     cout << endl << "Coefficient: " << coeff * 24 * 60 * 60 << " inHg/day" << endl;
 
