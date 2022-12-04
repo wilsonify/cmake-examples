@@ -1,0 +1,8 @@
+// the configured options and settings for tutorial
+#cmakedefine USE_MYMATH
+#define tutorial_VERSION_MAJOR @tutorial_VERSION_MAJOR@
+#define tutorial_VERSION_MINOR @tutorial_VERSION_MINOR@
+
+// does the platform provide exp and log functions?
+#cmakedefine HAVE_LOG
+#cmakedefine HAVE EXP
