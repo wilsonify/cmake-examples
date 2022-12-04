@@ -1,0 +1,4 @@
+FROM step08-dashboard-base:latest
+RUN apt-get install -y apt-utils
+RUN apt-get install -y cmake g++
+WORKDIR /usr/src/app
