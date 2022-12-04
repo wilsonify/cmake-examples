@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.4)
 project( weather-statistics )
 add_library( WeatherStatistics WeatherStatistics.cpp )
 add_executable( weather-statistics WeatherStatisticsMain.cpp )
