@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.4)
+project( n-queens )
+add_library( NQueens NQueens.cpp )
+add_executable( n-queens NQueensMain.cpp )
+target_link_libraries( n-queens NQueens )

@@ -6,19 +6,21 @@ OBJS    = GeolocationMain.o GeolocationRequest.o GeolocationWifiPoints.o cJSON.o
 SRC		= GeolocationMain.cpp GeolocationRequest.cpp GeolocationWifiPoints.cpp cJSON.c
 LDLIBS	= -lcurl -lwlanapi
 
-build_dir:
-	mkdir -p build
+ver_file = echo "1.0.0" > $(1) && date +%Y-%m-%d >> $(1)
 
-dist_dir:
-	mkdir -p dist
+build/VERSION.txt:
+	mkdir -p build && $(call ver_file, $@)
 
-build/Makefile: build_dir
+dist/VERSION.txt:
+	mkdir -p dist && $(call ver_file, $@)
+
+build/Makefile: build/VERSION.txt
 	cd build && cmake ..
 
-build/geolocation: build_dir
+build/geolocation: build/VERSION.txt
 	cd build && make
 
-dist/geolocation: dist_dir build/geolocation
+dist/geolocation: dist/VERSION.txt build/geolocation
 	mv build/geolocation dist
 
 GeolocationRequest.o:
@@ -32,6 +34,12 @@ cJSON.o:
 
 GeolocationMain.o:
 	$(CC) -c GeolocationMain.cpp
+
+WeatherStatistics.o:
+	g++ -c external/weather-statistics/WeatherStatistics.cpp
+
+WeatherStatisticsMain.o:
+	g++ -c external/weather-statistics/WeatherStatisticsMain.cpp
 
 $(TARGET): WeatherStatisticsMain.o WeatherStatistics.o
 	$(CC) -o $(TARGET) $(OBJS)

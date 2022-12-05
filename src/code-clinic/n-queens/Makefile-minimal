@@ -1,0 +1,21 @@
+# NQueens Makefile
+
+.PHONY: clean all
+
+all: clean n-queens
+
+clean:
+	rm -f *.out
+	rm -f *.o
+	rm -f *.o
+	rm -rf build
+	rm -rf dist
+
+NQueens.o:
+	g++ -c NQueens.cpp
+
+NQueensMain.o:
+	g++ -c NQueensMain.cpp
+
+n-queens: NQueensMain.o NQueens.o
+	g++ -o n-queens NQueensMain.o NQueens.o

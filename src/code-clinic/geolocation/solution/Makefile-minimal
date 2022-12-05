@@ -1,0 +1,37 @@
+# Geolocation Makefile by Olivia Stone for Code Clinic: C++
+CC		= g++
+TARGET	= Geolocation.out
+LIBSRC  = GeolocationRequest.cpp GeolocationWifiPoints.cpp cJSON.c
+OBJS    = GeolocationMain.o GeolocationRequest.o GeolocationWifiPoints.o cJSON.o
+SRC		= GeolocationMain.cpp GeolocationRequest.cpp GeolocationWifiPoints.cpp cJSON.c
+LDLIBS	= -lcurl -lwlanapi
+
+.PHONY: clean all
+
+all: $(TARGET)
+
+clean:
+	rm -f *.out
+	rm -f *.o
+	rm -f *.o
+
+GeolocationRequest.o:
+	$(CC) -I curl/include -c GeolocationRequest.cpp
+
+GeolocationWifiPoints.o:
+	$(CC) -c GeolocationWifiPoints.cpp
+
+cJSON.o:
+	$(CC) -c cJSON.c
+
+GeolocationMain.o:
+	$(CC) -c GeolocationMain.cpp
+
+WeatherStatistics.o:
+	g++ -c external/weather-statistics/WeatherStatistics.cpp
+
+WeatherStatisticsMain.o:
+	g++ -c external/weather-statistics/WeatherStatisticsMain.cpp
+
+$(TARGET): WeatherStatisticsMain.o WeatherStatistics.o cJSON.o
+	$(CC) -o $(TARGET) $(OBJS)

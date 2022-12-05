@@ -1,0 +1,18 @@
+all: clean WeatherStatistics
+
+clean:
+	rm -f *.out
+	rm -f *.o
+	rm -f *.o
+	rm -rf build
+	rm -rf dist
+	rm WeatherStatistics
+
+WeatherStatistics.o:
+	g++ -c WeatherStatistics.cpp
+
+WeatherStatisticsMain.o:
+	g++ -c WeatherStatisticsMain.cpp
+
+WeatherStatistics: WeatherStatisticsMain.o WeatherStatistics.o
+	g++ -o WeatherStatistics WeatherStatisticsMain.o WeatherStatistics.o
