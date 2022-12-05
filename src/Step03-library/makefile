@@ -39,4 +39,4 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step03-library step03-library:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step03-library-builder:latest make all
+	docker run --rm --name step03-library-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step03-library-builder:latest make all

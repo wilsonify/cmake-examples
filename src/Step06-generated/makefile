@@ -40,4 +40,4 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step06-generated step06-generated:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step06-generated-builder:latest make all
+	docker run --rm --name step06-generated -u 1000:1000 -v $(shell pwd):/usr/src/app step06-generated-builder:latest make all

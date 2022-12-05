@@ -44,4 +44,4 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step07-installable step07-installable:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step07-installable-builder:latest make all
+	docker run --rm --name step07-installable -u 1000:1000 -v $(shell pwd):/usr/src/app step07-installable-builder:latest make all

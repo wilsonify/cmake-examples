@@ -36,4 +36,4 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step02-versioned step02-versioned:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step02-versioned-builder:latest make all
+	docker run --rm --name step02-versioned -u 1000:1000 -v $(shell pwd):/usr/src/app step02-versioned-builder:latest make all

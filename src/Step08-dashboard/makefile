@@ -44,7 +44,7 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step08-dashboard step08-dashboard:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step08-dashboard-builder:latest make all
+	docker run --rm --name step08-dashboard -u 1000:1000 -v $(shell pwd):/usr/src/app step08-dashboard-builder:latest make all
 
 dashboard: build/tutorial
 	cd build && ctest -D Experimental

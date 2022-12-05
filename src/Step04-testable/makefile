@@ -39,4 +39,4 @@ docker-run: build/docker-image.txt
 	docker run --rm --name step04-testable step04-testable:latest 10000
 
 dist/docker/tutorial: build/docker-builder.txt
-	docker run --rm --name step01-builder -u 1000:1000 -v $(shell pwd):/usr/src/app step04-testable-builder:latest make all
+	docker run --rm --name step04-testable -u 1000:1000 -v $(shell pwd):/usr/src/app step04-testable-builder:latest make all
